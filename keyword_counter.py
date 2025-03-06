@@ -21,7 +21,7 @@ def count_keyword_occurrences(url, keywords):
         session = HTMLSession()
         response = session.get(url, headers=headers, timeout=10)
         sleep(1) #Avoid rate-limit
-        response.html.render(timeout=60, sleep=10)  # Render JavaScript content if necessary
+        #response.html.render(timeout=60, sleep=10)  # Render JavaScript content if necessary
         content = response.html.html
 
         # Parse the content with BeautifulSoup
@@ -34,9 +34,6 @@ def count_keyword_occurrences(url, keywords):
         # Extract text content
         text = soup.get_text()
         text = text.lower()  # Convert to lowercase for case-insensitive matching
-
-        # Improved regex to retain words with special characters like hyphens, parentheses, and periods
-        #words = re.findall(r'\b[\w()\-\.]+\b', text)
 
         # Count the occurrences of each keyword using regex
         keyword_counts = Counter()
