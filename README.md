@@ -1,2 +1,2 @@
 # Keywords-search
-Counting keywords from the webpage
+Count keywords from the webpage
